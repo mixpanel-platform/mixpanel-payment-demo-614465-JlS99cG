@@ -36,7 +36,7 @@
       
         if (eventName) {
           // create funnels from EVENT to next event 
-          MP.api.funnel(eventName, 'Purchase').done(function(results) {
+          MP.api.funnel(eventName, 'Transaction').done(function(results) {
             console.log(results);
           });
         }
