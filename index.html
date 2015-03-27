@@ -28,14 +28,16 @@
       });
 
       var runQuery = function() {
+        // grabs values 
         var eventName = eventSelect.MPEventSelect('value'),
             propName  = propSelect.MPPropertySelect('value'),
             dateRange = dateSelect.MPDatepicker('value');
 
+      
         if (eventName) {
-          MP.api.segment(eventName, propName, dateRange).done(function(results) {
-            eventGraph.MPChart('setData', results);
-            eventTable.MPTable('setData', results);
+          // create funnels from EVENT to next event 
+          MP.api.funnel('Signup', 'Purchase').done(function(results) {
+            console.log(results);
           });
         }
       };
