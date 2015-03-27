@@ -36,8 +36,10 @@
         if (eventName) {
           // create funnels from EVENT to next event 
           var topEventParams = {limit:10};
+          var events = [];
           MP.api.topEvents(topEventParams).done(function(results) {
             console.log('top events\n', results.values());
+            console.log(results.values().length)
           });
           MP.api.funnel(eventName, 'Transaction').done(function(results) {
             console.log(results);
