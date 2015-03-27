@@ -45,11 +45,21 @@
           var topEventParams = {limit:10};
           MP.api.topEvents(topEventParams).done(function(results) {
             //console.log('top events\n', results.values());
+            alert(dateRange);
             for(var key in results.values())
             {
-              if(results.values()[key] != '')
+              if(results.values()[key] != 'Create Account')
               {
                 // for each event, get the unique count in date range with prop last page == whatever
+                var params = {
+                  //dateRange,                           
+                  type: 'general',                        
+                  'where': 'properties["Bank"] == "Wells Fargo',     
+                  'method': 'unique',                    
+              };
+                MP.api.segment(results.values()[key], null, params).done(function(results) {
+                  console.log(results.values());
+                });
               }
             }
               var data = {
