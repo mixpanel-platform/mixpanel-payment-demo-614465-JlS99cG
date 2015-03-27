@@ -17,6 +17,12 @@
     <div id="table"></div>
     
     <script>
+    
+    /*
+    TODOs:
+    - would be cool to have a stacked bar graph with property segmentation
+    */
+    
       var eventSelect = $('#eventSelect').MPEventSelect();
       var propSelect  = $('#propSelect').MPPropertySelect();
       var dateSelect  = $('#dateSelect').MPDatepicker();
@@ -27,7 +33,6 @@
       });
 
       var runQuery = function() {
-        alert('run query');
         // grabs values 
         var eventName = eventSelect.MPEventSelect('value'),
             propName  = propSelect.MPPropertySelect('value'),
@@ -45,6 +50,19 @@
               //console.log('Event : ', results.values()[key])
               MP.api.funnel(eventName, results.values()[key]).done(function(results) {
                 console.log(results);
+                var ongoingCount1 = 0; 
+                var ongoingCount2 = 0;
+                for(var key in results[0])
+                {
+                  ongoingCount1 += results[0][key]['count'];
+                }
+                for(var key in results[1])
+                {
+                  ongoingCount2 += results[1][key]['count'];
+                }
+                console.log('ongoing count 1 ', ongoingCount1);
+                console.log('ongoing count 2: ', ongoingCount2);
+                console.log('1/2 = ', ongoingCount1/ongoingCount2);
                 var data = {
                   'segment1': {
                         '2010-09-01': 10,
