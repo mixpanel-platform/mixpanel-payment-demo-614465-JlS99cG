@@ -56,7 +56,9 @@
                   'where': 'properties["Bank"] == "Wells Fargo',     
                   'method': 'unique',                    
               };
-               
+                MP.api.segment(results.values()[key], '', params).done(function(results) {
+                  console.log(results.values());
+                });
               }
             }
               var data = {
