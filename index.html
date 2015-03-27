@@ -45,7 +45,7 @@
           var topEventParams = {limit:10};
           MP.api.topEvents(topEventParams).done(function(results) {
             //console.log('top events\n', results.values());
-            alert(dateRange);
+            alert(dateRange['to']);
             for(var key in results.values())
             {
               if(results.values()[key] != 'Create Account')
