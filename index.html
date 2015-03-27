@@ -41,12 +41,16 @@
       
         if (eventName) {
           
-          // create funnels from EVENT to next event 
+          // get top 10 events 
           var topEventParams = {limit:10};
+          
           MP.api.topEvents(topEventParams).done(function(results) {
             //console.log('top events\n', results.values());
+            
+            // for each top 10 event...
             for(var key in results.values())
             {
+              // if not account created event <- look up all unique events in date range that have "last event "= account created (in this case bank == wells)
               if(results.values()[key] != 'Create Account')
               {
                 // for each event, get the unique count in date range with prop last page == whatever
