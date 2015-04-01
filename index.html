@@ -43,6 +43,7 @@
           MP.api.topEvents(topEventParams).done(function(results) {
             //console.log('top events\n', results.values());
             // for each top 10 event...
+            var data = {};
             for(var key in results.values())
             {
               // if not account created event <- look up all unique events in date range that have "last event "= account created (in this case bank == wells)
@@ -58,9 +59,11 @@
               };
                 MP.api.segment(results.values()[key], null ,params).done(function(results) {
                   console.log(results.values());
+                  data[results.values().key] = results.values().value;
                 });
               }
             }
+            /*
               var data = {
               'segment1': {
                     '2010-09-01': 10,
@@ -78,6 +81,7 @@
                     '2010-09-03': 30
                 }
             };
+            */
             eventGraph.MPChart('setData', data);
           });
           
