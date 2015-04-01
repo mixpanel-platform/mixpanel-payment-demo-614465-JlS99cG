@@ -55,7 +55,7 @@
                   where: 'properties["Bank"] == "Wells Fargo',     
                   method: 'unique'                    
               };
-                MP.api.segment(results.values()[key], propName ,params).done(function(results) {
+                MP.api.segment(results.values()[key], "Bank" ,params).done(function(results) {
                   console.log(results.values());
                 });
               }
