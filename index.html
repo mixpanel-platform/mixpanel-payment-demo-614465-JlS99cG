@@ -58,9 +58,9 @@
                   to: dateRange['to'],
                   from: dateRange['from'],
                   'where': 'properties["Bank"] == "Wells Fargo',     
-                  'method': 'unique',                    
+                  'method': 'unique'                    
               };
-                MP.api.segment(results.values()[key], 'properties["bank"] == "Wells Fargo"' ,params).done(function(results) {
+                MP.api.segment(results.values()[key], propName ,params).done(function(results) {
                   console.log(results.values());
                 });
               }
