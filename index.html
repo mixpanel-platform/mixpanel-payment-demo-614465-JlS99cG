@@ -59,7 +59,7 @@
               };
                 var tempObj = null;
                 MP.api.segment(results.values()[key], null ,params).done(function(results) {
-                  console.log(results.values());
+                  //console.log(results.values());
                   tempObj = results.values();
                 });
                 data[results.values()[key]] = tempObj;
