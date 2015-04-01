@@ -59,7 +59,7 @@
               };
                 var tempObj = MP.api.segment(results.values()[key], null ,params).done(function(results) {
                   //console.log(results.values());
-                  return results.values();
+                  eventGraph.MPChart('addSeries', results.values());
                 });
                 console.log(tempObj);
                 data[results.values()[key]] = tempObj[results.values()[key]];
@@ -84,8 +84,6 @@
                 }
             };
             */
-            console.log(data);
-            eventGraph.MPChart('setData', data);
           });
           
 
