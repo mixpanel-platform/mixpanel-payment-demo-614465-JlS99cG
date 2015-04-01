@@ -34,6 +34,7 @@
         //var eventName = eventSelect.MPEventSelect('value'),
           //  propName  = propSelect.MPPropertySelect('value'),
             dateRange = dateSelect.MPDatepicker('value');
+            propName = null;
 
       
 
@@ -54,7 +55,7 @@
                   where: 'properties["Bank"] == "Wells Fargo',     
                   method: 'unique'                    
               };
-                MP.api.segment(results.values()[key], params).done(function(results) {
+                MP.api.segment(results.values()[key], propName ,params).done(function(results) {
                   console.log(results.values());
                 });
               }
