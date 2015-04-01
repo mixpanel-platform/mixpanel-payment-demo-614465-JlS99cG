@@ -58,7 +58,7 @@
                   'where':'properties["Bank"] == "Wells Fargo"'
               };
                 MP.api.segment(results.values()[key], null ,params).done(function(results) {
-                  console.log(results.values().key);
+                  console.log(results.values());
                   data
                 });
               }
