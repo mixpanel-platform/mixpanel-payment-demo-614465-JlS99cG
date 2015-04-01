@@ -32,7 +32,7 @@
            var propName = null;
 
       
-
+  function runQuery(){
           // get top 10 events 
           var topEventParams = {limit:10};
           MP.api.topEvents(topEventParams).done(function(results) {
@@ -61,7 +61,10 @@
               }
             }
           });
-          
+  }
+          dateSelect.on('change', function(e, dates) {  
+            runQuery();
+          }
 
     </script>
     
