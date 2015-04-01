@@ -50,12 +50,13 @@
               {
                 // for each event, get the unique count in date range with prop last page == whatever
                 var params = {
-                  to: dateRange['to'],
                   from: dateRange['from'],
-                  where: 'properties["Bank"] == "Wells Fargo',     
-                  method: 'unique'                    
+                  to: dateRange['to'],
+                  type: 'unique',
+                  
+                  'where':'properties["Bank"] == "Wells Fargo"'
               };
-                MP.api.segment(results.values()[key], "Bank" ,params).done(function(results) {
+                MP.api.segment(results.values()[key], null ,params).done(function(results) {
                   console.log(results.values());
                 });
               }
