@@ -57,10 +57,9 @@
                   
                   'where':'properties["Bank"] == "Wells Fargo"'
               };
-                var tempObj = null;
-                MP.api.segment(results.values()[key], null ,params).done(function(results) {
+                var tempObj = MP.api.segment(results.values()[key], null ,params).done(function(results) {
                   //console.log(results.values());
-                  tempObj = results.values();
+                  return results.values();
                 });
                 data[results.values()[key]] = tempObj;
               }
