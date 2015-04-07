@@ -30,10 +30,6 @@
           //  propName  = propSelect.MPPropertySelect('value'),
            var dateRange = dateSelect.MPDatepicker('value');
            var propName = null;
-
-$(document).on("pageload",function(){
-        runQuery();
-      });
       
   function runQuery(){
           // get top 10 events 
@@ -69,6 +65,7 @@ $(document).on("pageload",function(){
             runQuery();
           });
 
+    runQuery();
     </script>
     
     
